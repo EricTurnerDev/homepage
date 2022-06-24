@@ -1,38 +1,55 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
+import Date from '../components/date';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Eric Turner, Software Developer</title>
-        <meta name="description" content="Homepage for Eric Turner" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { getSortedPostsData} from '../lib/posts';
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Hi, my name is Eric Turner.
-        </h1>
+/**
+ * Causes next.js to fetch data before static (build time) pre-rendering.
+ * Only runs server-side, so you could write code such as direct database queries.
+ * Can only be exported from a page.
+ * Can't use data that's only available at request time (e.g. query parameters).
+ *
+ * @returns {Promise<{props: {allPostsData}}>}
+ */
+export async function getStaticProps() {
+    const allPostsData = getSortedPostsData();
+    return {
+        props: {
+            allPostsData,
+        },
+    };
+}
 
-        <p className={styles.description}>
-           Welcome to my page.
-        </p>
-      </main>
+//Use getServerSideProps(context) for server-side pre-rendering instead
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+export default function Home({ allPostsData }) {
+    return (
+        <Layout home>
+            <Head>
+                <title>{siteTitle}</title>
+            </Head>
+            <section className={utilStyles.headingMd}>
+                <h1 className={utilStyles.headingLg}>Hi, I&apos;m Eric. Welcome to my site.</h1>
+            </section>
+            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                <h2 className={utilStyles.headingLg}>Recent posts...</h2>
+                <ul className={utilStyles.list}>
+                    {allPostsData.map(({ id, date, title }) => (
+                        <li className={utilStyles.listItem} key={id}>
+                            <Link href={`/posts/${id}`}>
+                                <a>{title}</a>
+                            </Link>
+                            <br />
+                            <small className={utilStyles.lightText}>
+                                <Date dateString={date} />
+                            </small>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </Layout>
+    )
 }
