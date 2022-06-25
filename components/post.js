@@ -3,13 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Date from './date';
 import Layout from './layout';
+import Config from '../lib/config';
 
 import utilStyles from '../styles/utils.module.css';
 import styles from './post.module.css';
-
-const name = 'Eric Turner';
-const imgWidth = 400;
-const imgHeight = 425;
 
 export default function Post({postData}) {
     return (
@@ -22,10 +19,10 @@ export default function Post({postData}) {
                     <a>
                         <Image
                             priority
-                            src="/images/profile.jpg"
-                            width={imgWidth * 0.4}
-                            height={imgHeight * 0.4}
-                            alt={name}
+                            src={Config.profileImage.path}
+                            width={Config.profileImage.width * 0.4}
+                            height={Config.profileImage.height * 0.4}
+                            alt={`${Config.user.firstName} ${Config.user.surname}`}
                         />
                     </a>
                 </Link>

@@ -1,14 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Layout from './layout';
 import Date from './date';
+import Layout from './layout';
+import Config from '../lib/config';
 
 import utilStyles from '../styles/utils.module.css';
 import styles from './home.module.css';
-
-const name = 'Eric Turner';
-const imgWidth = 400;
-const imgHeight = 425;
 
 export default function Home({ allPostsData }) {
     return (
@@ -16,12 +13,12 @@ export default function Home({ allPostsData }) {
             <header className={styles.header}>
                 <Image
                     priority
-                    src="/images/profile.jpg"
-                    width={imgWidth * 0.7}
-                    height={imgHeight * 0.7}
-                    alt={name}
+                    src={Config.profileImage.path}
+                    width={Config.profileImage.width * 0.7}
+                    height={Config.profileImage.height * 0.7}
+                    alt={`${Config.user.firstName} ${Config.user.surname}`}
                 />
-                <h1 className={utilStyles.headingLg}>Hi, I&apos;m Eric. Welcome to my site.</h1>
+                <h1 className={utilStyles.headingLg}>Hi, I&apos;m {Config.user.firstName}. Welcome to my site.</h1>
             </header>
             <main>
                 <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
