@@ -1,24 +1,19 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 
 const name = 'Eric Turner';
-const imgWidth = 400;
-const imgHeight = 425;
 
-export const siteTitle = `${name}, Software Engineer`;
+export const siteTitle = `${name}'s Website`;
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
     return (
         <div className={styles.container}>
             <Head>
-                <title></title>
+                <title>{siteTitle}</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
-                    content="Learn how to build a personal website using Next.js"
+                    content="Eric Turner's website"
                 />
                 <meta
                     property="og:image"
@@ -29,47 +24,7 @@ export default function Layout({ children, home }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header}>
-                {home ? (
-                    <>
-                        <Image
-                            priority
-                            src="/images/profile.jpg"
-                            width={imgWidth*0.7}
-                            height={imgHeight*0.7}
-                            alt={name}
-                        />
-                    </>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <a>
-                                <Image
-                                    priority
-                                    src="/images/profile.jpg"
-                                    className={utilStyles.borderCircle}
-                                    width={imgWidth*0.5}
-                                    height={imgHeight*0.5}
-                                    alt={name}
-                                />
-                            </a>
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
-                    </>
-                )}
-            </header>
-            <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
+            {children}
         </div>
     );
 }

@@ -1,13 +1,9 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Date from '../components/date';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
-
-import { getSortedPostsData} from '../lib/posts';
+import Home from '../components/home';
+import {getSortedPostsData} from "../lib/posts";
 
 /**
  * Causes next.js to fetch data before static (build time) pre-rendering.
+ * Passes the allPostsData to the Home component.
  * Only runs server-side, so you could write code such as direct database queries.
  * Can only be exported from a page.
  * Can't use data that's only available at request time (e.g. query parameters).
@@ -23,33 +19,4 @@ export async function getStaticProps() {
     };
 }
 
-//Use getServerSideProps(context) for server-side pre-rendering instead
-
-export default function Home({ allPostsData }) {
-    return (
-        <Layout home>
-            <Head>
-                <title>{siteTitle}</title>
-            </Head>
-            <section className={utilStyles.headingMd}>
-                <h1 className={utilStyles.headingLg}>Hi, I&apos;m Eric. Welcome to my site.</h1>
-            </section>
-            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                <h2 className={utilStyles.headingLg}>Recent posts...</h2>
-                <ul className={utilStyles.list}>
-                    {allPostsData.map(({ id, date, title }) => (
-                        <li className={utilStyles.listItem} key={id}>
-                            <Link href={`/posts/${id}`}>
-                                <a>{title}</a>
-                            </Link>
-                            <br />
-                            <small className={utilStyles.lightText}>
-                                <Date dateString={date} />
-                            </small>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-        </Layout>
-    )
-}
+export default Home;
