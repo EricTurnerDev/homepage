@@ -1,6 +1,8 @@
+import { getMDXComponent } from 'mdx-bundler/client';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useMemo } from 'react';
 import Date from './date';
 import Layout from './layout';
 import Config from '../lib/config';
@@ -8,11 +10,13 @@ import Config from '../lib/config';
 import utilStyles from '../styles/utils.module.css';
 import styles from './post.module.css';
 
-export default function Post({postData}) {
+export default function Post({frontmatter, code}) {
+    const Component = useMemo(() => getMDXComponent(code), [code]);
+
     return (
         <Layout>
             <Head>
-                <title>{postData.title}</title>
+                <title>{frontmatter.title}</title>
             </Head>
             <header className={styles.header}>
                 <Link href="/">
@@ -29,11 +33,14 @@ export default function Post({postData}) {
             </header>
             <main>
                 <article>
-                    <h1 className={utilStyles.headingLg}>{postData.title}</h1>
+                    <h1 className={utilStyles.headingLg}>{frontmatter.title}</h1>
                     <div className={utilStyles.lightText}>
-                        <Date dateString={postData.date}/>
+                        <Date dateString={frontmatter.date}/>
                     </div>
-                    <div dangerouslySetInnerHTML={{__html: postData.contentHtml}}/>
+                    {/* Pass components commonly used in MDX files, so you don't have to import them. */}
+                    <Component components={{
+                        Date,
+                    }} />
                 </article>
             </main>
             <div className={styles.backToHome}>
