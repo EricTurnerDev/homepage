@@ -9,6 +9,7 @@ import Config from '../lib/config';
 
 import utilStyles from '../styles/utils.module.css';
 import styles from './post.module.css';
+import SyntaxHighlighter from "./syntaxHighlighter";
 
 export default function Post({frontmatter, code}) {
     const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -37,9 +38,10 @@ export default function Post({frontmatter, code}) {
                     <div className={utilStyles.lightText}>
                         <Date dateString={frontmatter.date}/>
                     </div>
-                    {/* Pass components commonly used in MDX files, so you don't have to import them. */}
+                    {/* Pass components commonly used in MDX files, so you don't have to explicitly import them. */}
                     <Component components={{
                         Date,
+                        pre: SyntaxHighlighter,
                     }} />
                 </article>
             </main>
