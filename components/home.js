@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
             </Head>
             <header></header>
             <Navbar />
-            <h1>Hi, I&apos;m Eric. Welcome to my site</h1>
+            <h1 className="text-3xl font-bold">Hi, I&apos;m Eric. Welcome to my site</h1>
             <section>
                 <h2>Recent posts</h2>
                 <ul>

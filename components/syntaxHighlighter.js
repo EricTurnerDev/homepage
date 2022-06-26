@@ -9,7 +9,7 @@ const SyntaxHighlighter = ({ children }) => {
     return (
         <Highlight {...defaultProps} code={code} theme={theme} language={language}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <pre className={`${className} ${styles.codeBlock}`} style={style}>
+                <pre className={`${className}`} style={style}>
                   {tokens.map((line, i) => {
                       const lineProps = getLineProps({line, key: i});
                       return (
