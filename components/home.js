@@ -1,32 +1,42 @@
 import Link from 'next/link';
 import Date from './date';
-import PageLayout from './pageLayout';
 
-import utilStyles from '../styles/utils.module.css';
 import styles from './home.module.css';
+import Head from "next/head";
+import Navbar from "./navbar";
 
 export default function Home({ allPostsData }) {
+    const siteTitle = 'Home - ericturner.dev';
+
     return (
-        <PageLayout>
-            <main>
-                <h1 className={utilStyles.headingLg}>Hi, I&apos;m Eric. Welcome to my site</h1>
-                <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                    <h2 className={utilStyles.headingMd}>Check out my recent posts...</h2>
-                    <ul className={utilStyles.list}>
-                        {allPostsData.map(({slug, date, title}) => (
-                            <li className={utilStyles.listItem} key={slug}>
-                                <Link href={`/posts/${slug}`}>
-                                    <a>{title}</a>
-                                </Link>
-                                <br/>
-                                <small className={utilStyles.lightText}>
-                                    <Date dateString={date}/>
-                                </small>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            </main>
-        </PageLayout>
+        <>
+            <Head>
+                <title>{siteTitle}</title>
+                <link rel="icon" href="/favicon.ico"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta
+                    name="description"
+                    content="Eric Turner's website"
+                />
+                <meta name="og:title" content={siteTitle}/>
+            </Head>
+            <header></header>
+            <Navbar />
+            <h1>Hi, I&apos;m Eric. Welcome to my site</h1>
+            <section>
+                <h2>Recent posts</h2>
+                <ul>
+                    {allPostsData.map(({slug, date, title}) => (
+                        <li key={slug}>
+                            <Link href={`/posts/${slug}`}>
+                                <a>{title}</a>
+                            </Link>
+                            <br/>
+                            <Date dateString={date}/>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </>
     );
 }

@@ -5,26 +5,23 @@ import Config from '../lib/config';
 
 export default function Navbar() {
     return (
-        <nav className={styles.navbar}>
-            <div className={styles.container}>
-                <Link href="/">
-                    <a className={styles.brand}>
-                        <Image width={Config.profileImage.width * 0.15}
-                               height={Config.profileImage.height * 0.15}
-                               src={Config.profileImage.path}/>
-                        <span className={styles.brandName}>EricTurner.dev</span>
-                    </a>
-                </Link>
-                <button className={styles.toggle}>
-                    <span className={styles.toggleIcon}></span>
-                </button>
-                <div className={styles.collapse}>
-                    <div className={styles.nav}>
-                        {/*<Link href="/blog"><a className={styles.navLink}>Blog</a></Link>*/}
-                        {/*<Link href="/about"><a className={styles.navLink}>About</a></Link>*/}
-                    </div>
-                </div>
-            </div>
+        <nav>
+            <Link href="/">
+                <a>
+                    <Image width={Config.profileImage.width * 0.15}
+                           height={Config.profileImage.height * 0.15}
+                           src={Config.profileImage.path}/>
+                    <span>EricTurner.dev</span>
+                </a>
+            </Link>
+            <ul>
+                <li>
+                    <Link href="/blog"><a>Blog</a></Link>
+                </li>
+                <li>
+                    <Link href="/about"><a>About</a></Link>
+                </li>
+            </ul>
         </nav>
     );
 }
