@@ -1,0 +1,52 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+.brandName {
+    margin-left: 0.5rem;
+}
+.toggle {
+    display: none;
+}
+
+.toggleIcon {
+
+}
+
+.collapse {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.navLink {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
