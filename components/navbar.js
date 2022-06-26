@@ -12,7 +12,7 @@ export default function Navbar() {
                         <Image width={Config.profileImage.width * 0.15}
                                height={Config.profileImage.height * 0.15}
                                src={Config.profileImage.path}/>
-                        <span className={styles.brandName}>Eric Turner</span>
+                        <span className={styles.brandName}>EricTurner.dev</span>
                     </a>
                 </Link>
                 <button className={styles.toggle}>

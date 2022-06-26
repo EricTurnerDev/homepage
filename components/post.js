@@ -21,9 +21,9 @@ export default function Post({frontmatter, code}) {
             <main>
                 <article>
                     <h1 className={utilStyles.headingLg}>{frontmatter.title}</h1>
-                    <div className={utilStyles.lightText}>
-                        <Date dateString={frontmatter.date}/>
-                    </div>
+                    <p className={utilStyles.lightText}>
+                        Published on <Date dateString={frontmatter.date}/>
+                    </p>
                     {/* Pass components commonly used in MDX files, so you don't have to explicitly import them. */}
                     <Component components={{
                         Date,
