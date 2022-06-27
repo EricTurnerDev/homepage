@@ -7,12 +7,13 @@ import Date from './date';
 import styles from './post.module.css';
 import SyntaxHighlighter from "./syntaxHighlighter";
 import Navbar from "./navbar";
+import classNames from "classnames";
 
-export default function Post({frontmatter, code}) {
+export default function Post({frontmatter, code, className}) {
     const Component = useMemo(() => getMDXComponent(code), [code]);
 
     return (
-        <>
+        <div className={classNames('post', className)}>
             <Head>
                 <title>{frontmatter.title}</title>
                 <link rel="icon" href="/favicon.ico"/>
@@ -23,10 +24,13 @@ export default function Post({frontmatter, code}) {
                 />
                 <meta name="og:title" content={frontmatter.title}/>
             </Head>
+
             <header></header>
+
             <Navbar />
+
             <main>
-                <article className="mt-6 px-6 md:px-10">
+                <article className="mt-4 px-6 md:mt-8 md:px-10">
                     <h1 className="text-2xl font-semibold">{frontmatter.title}</h1>
                     <div className="metadata mt-2">
                         <p>{frontmatter.author}</p>
@@ -41,9 +45,13 @@ export default function Post({frontmatter, code}) {
                     </div>
                 </article>
             </main>
+
             <Link href="/">
                 <a className="block font-semibold mt-6 px-6 md:mt-10 md:px-10">← Back to home</a>
             </Link>
-        </>
+
+            <footer className="mb-10">
+            </footer>
+        </div>
     );
 }

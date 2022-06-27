@@ -2,13 +2,14 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Config from '../lib/config';
 import {useState} from "react";
+import classNames from "classnames";
 
-export default function Navbar() {
+export default function Navbar({ className }) {
 
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return (
-        <nav className="sticky top-0 bg-white/90 px-2 py-1">
+        <nav className={classNames('navbar sticky top-0 bg-white/90 px-2 py-1', className)}>
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
