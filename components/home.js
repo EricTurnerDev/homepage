@@ -21,7 +21,6 @@ export default function Home({ allPostsData }) {
                 />
                 <meta name="og:title" content={siteTitle}/>
             </Head>
-            <header></header>
             <Navbar />
             <section className="flex flex-col items-center py-6 bg-blue-200 md:py-10">
                 <h1 className="text-2xl font-semibold md:text-3xl">Hi, I&apos;m Eric</h1>
