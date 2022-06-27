@@ -8,12 +8,12 @@ export default function Navbar() {
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return (
-        <nav className="bg-white px-2 py-2.5">
+        <nav className="sticky top-0 bg-white/90 px-2 py-1">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
                         <img src={Config.profileImage.path} className="mr-3 h-8" alt="Kayak Sailing"/>
-                        <span className="text-xl font-semibold whitespace-nowrap">EricTurner.dev</span>
+                        <span className="text-xl font-semibold whitespace-nowrap">ericturner.dev</span>
                     </a>
                 </Link>
                 <button type="button"

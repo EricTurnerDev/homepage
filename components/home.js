@@ -7,6 +7,7 @@ import Navbar from "./navbar";
 
 export default function Home({ allPostsData }) {
     const siteTitle = 'Home - ericturner.dev';
+    const maxPosts = 10;
 
     return (
         <>
@@ -22,17 +23,28 @@ export default function Home({ allPostsData }) {
             </Head>
             <header></header>
             <Navbar />
-            <h1 className="text-3xl font-bold">Hi, I&apos;m Eric. Welcome to my site</h1>
-            <section>
-                <h2>Recent posts</h2>
+            <section className="flex flex-col items-center py-6 bg-blue-200 md:py-10">
+                <h1 className="text-2xl font-semibold md:text-3xl">Hi, I&apos;m Eric</h1>
+                <h2 className="text-xl font-semibold md:text-2xl"> Welcome to my site</h2>
+            </section>
+            <section className="px-6 mt-4">
+                <h2 className="text-xl font-semibold">Blog Posts</h2>
                 <ul>
-                    {allPostsData.map(({slug, date, title}) => (
-                        <li key={slug}>
+                    {allPostsData.slice(0, maxPosts).map(({slug, title, subtitle, date, excerpt}) => (
+                        <li className="mt-8" key={slug}>
+                            <h3 className="text-lg font-semibold">
+                                <Link href={`/posts/${slug}`}>
+                                    <a>{title}</a>
+                                </Link>
+                            </h3>
+                            <div className="metadata font-light text-gray-800">
+                                <h4>{subtitle}</h4>
+                                <p>Published <Date dateString={date} /> </p>
+                            </div>
+                            <p className="mt-4">{excerpt}</p>
                             <Link href={`/posts/${slug}`}>
-                                <a>{title}</a>
+                                <a className="block mt-4 font-semibold">Read more</a>
                             </Link>
-                            <br/>
-                            <Date dateString={date}/>
                         </li>
                     ))}
                 </ul>

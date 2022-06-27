@@ -26,23 +26,24 @@ export default function Post({frontmatter, code}) {
             <header></header>
             <Navbar />
             <main>
-                <article>
-                    <h1>{frontmatter.title}</h1>
-                    <p>
-                        Published on <Date dateString={frontmatter.date}/>
-                    </p>
-                    {/* Pass components commonly used in MDX files, so you don't have to explicitly import them. */}
-                    <Component components={{
-                        Date,
-                        pre: SyntaxHighlighter,
-                    }} />
+                <article className="mt-6 px-6 md:px-10">
+                    <h1 className="text-2xl font-semibold">{frontmatter.title}</h1>
+                    <div className="metadata mt-2">
+                        <p>{frontmatter.author}</p>
+                        <p><Date dateString={frontmatter.date}/></p>
+                    </div>
+                    <div className={`${styles.blogContent} mt-4`}>
+                        {/* Pass components commonly used in MDX files, so you don't have to explicitly import them. */}
+                        <Component components={{
+                            Date,
+                            pre: SyntaxHighlighter,
+                        }} />
+                    </div>
                 </article>
             </main>
-            <div>
-                <Link href="/">
-                    <a>← Back to home</a>
-                </Link>
-            </div>
+            <Link href="/">
+                <a className="block font-semibold mt-6 px-6 md:mt-10 md:px-10">← Back to home</a>
+            </Link>
         </>
     );
 }
