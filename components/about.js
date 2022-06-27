@@ -25,6 +25,7 @@ export default function About({ allPostsData, className }) {
 
             <section className="mt-4 px-6 md:mt-8 md:px-10">
                 <Image width={400} height={425} src="/images/profile.jpg" />
+                <p className="text-sm font-light">Photo by <ExternalLink href="https://www.instagram.com/alicia.fyfe.1/">Alicia Fyfe</ExternalLink></p>
 
                 <h2 className="font-semibold mt-6 text-xl">About Me</h2>
                 <p className="pt-4">I am a sporadically-retired ☺️ software developer living near Annapolis, Maryland.️</p>

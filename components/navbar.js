@@ -13,7 +13,7 @@ export default function Navbar({ className }) {
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
-                        <img src={Config.profileImage.path} className="mr-3 h-8" alt="Kayak Sailing"/>
+                        {/*<img src={Config.profileImage.path} className="mr-3 h-8" alt="Kayak Sailing"/>*/}
                         <span className="text-xl font-semibold whitespace-nowrap">ericturner.dev</span>
                     </a>
                 </Link>
