@@ -8,6 +8,11 @@ import Back from "./back";
 export default function About({ className }) {
     const siteTitle = 'About - ericturner.dev';
 
+    const numYearsExperience = () => {
+        const currentYear = new Date().getFullYear();
+        return (currentYear-2001)+1;
+    };
+
     return (
         <div className={classNames('about', className)}>
             <Head>
@@ -30,12 +35,14 @@ export default function About({ className }) {
                 </p>
 
                 <h2>About Me</h2>
-                <p>I am a sporadically-retired ☺️ software developer living near Annapolis, Maryland.️</p>
+                <p>I am an independent/freelance software developer with {numYearsExperience()} years of experience,
+                    currently living near Annapolis, Maryland.️</p>
 
                 <h2>Professional Background</h2>
-                <p>I have worked as a Software Engineer since 2001 on projects for Entegra Systems (recently acquired by Acclaim Technical Services), Boeing, and Microsoft.</p>
-
-                <p>Recently I started Turner Software Development LLC to work as an independent contractor with a company developing a VR (Virtual Reality) product.</p>
+                <p>
+                    I have worked as a Software Engineer since 2001, starting at Boeing and later working at Entegra Systems (recently acquired by Acclaim Technical Services).
+                    In 2021 I created Turner Software Development LLC to work as an independent contractor with a company developing a VR (Virtual Reality) product.
+                </p>
 
                 <p>Prior to 2001 I worked as the Production Systems Technician at <ExternalLink href="https://www.bellinghamherald.com/">The Bellingham Herald</ExternalLink> newspaper in my hometown of <ExternalLink href="https://www.bellingham.org/">Bellingham, Washington</ExternalLink>.</p>
 
