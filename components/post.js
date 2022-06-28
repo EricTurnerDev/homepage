@@ -1,6 +1,5 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useMemo } from 'react';
 import Date from './date';
 
@@ -8,6 +7,7 @@ import styles from './post.module.css';
 import SyntaxHighlighter from "./syntaxHighlighter";
 import Navbar from "./navbar";
 import classNames from "classnames";
+import Back from "./back";
 
 export default function Post({frontmatter, code, className}) {
     const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -46,9 +46,7 @@ export default function Post({frontmatter, code, className}) {
                 </article>
             </main>
 
-            <Link href="/">
-                <a className="block font-semibold mt-6 px-6 md:mt-10 md:px-10">← Back to home</a>
-            </Link>
+            <Back href="/" label="home" />
 
             <footer className="mb-10">
             </footer>

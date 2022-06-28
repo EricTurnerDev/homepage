@@ -3,6 +3,7 @@ import Navbar from "./navbar";
 import Posts from './posts';
 import Link from "next/link";
 import classNames from "classnames";
+import Back from "./back";
 
 export default function Blog({ allPostsData, className }) {
     const siteTitle = 'Blog - ericturner.dev';
@@ -26,9 +27,7 @@ export default function Blog({ allPostsData, className }) {
                 <Posts postsData={allPostsData} />
             </section>
 
-            <Link href="/">
-                <a className="block font-semibold mt-6 px-6 md:mt-10 md:px-10">← Back to home</a>
-            </Link>
+            <Back href="/" label="Home" />
 
             <footer className="mb-10">
             </footer>

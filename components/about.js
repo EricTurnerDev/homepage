@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Navbar from "./navbar";
 import classNames from "classnames";
-import Link from "next/link";
 import Image from "next/image";
 import ExternalLink from "./externalLink";
+import Back from "./back";
 
-export default function About({ allPostsData, className }) {
+export default function About({ className }) {
     const siteTitle = 'About - ericturner.dev';
 
     return (
@@ -25,7 +25,9 @@ export default function About({ allPostsData, className }) {
 
             <section className="mt-4 px-6 md:mt-8 md:px-10">
                 <Image width={400} height={425} src="/images/profile.jpg" />
-                <p className="text-sm font-light">Photo by <ExternalLink href="https://www.instagram.com/alicia.fyfe.1/">Alicia Fyfe</ExternalLink></p>
+                <p className="text-sm font-light text-gray-500">
+                    Photo by <ExternalLink href="https://www.instagram.com/alicia.fyfe.1/">Alicia Fyfe</ExternalLink>
+                </p>
 
                 <h2 className="font-semibold mt-6 text-xl">About Me</h2>
                 <p className="pt-4">I am a sporadically-retired ☺️ software developer living near Annapolis, Maryland.️</p>
@@ -38,7 +40,7 @@ export default function About({ allPostsData, className }) {
                 <p className="pt-4">Prior to 2001 I worked as the Production Systems Technician at <ExternalLink href="https://www.bellinghamherald.com/">The Bellingham Herald</ExternalLink> newspaper in my hometown of <ExternalLink href="https://www.bellingham.org/">Bellingham, Washington</ExternalLink>.</p>
 
                 <h2 className="font-semibold mt-6 text-xl">Education</h2>
-                <p className="pt-4">I hold B.S. Computer Science and B.A. Spanish degrees from Western Washington University.</p>
+                <p className="pt-4">I hold B.S. Computer Science and B.A. Spanish degrees from <ExternalLink href="https://www.wwu.edu/">Western Washington University</ExternalLink>.</p>
 
                 <h2 className="font-semibold mt-6 text-xl">Interests</h2>
                 <p className="pt-4">3D printing, amateur radio (callsign KC3SVJ), kayak sailing, hiking, camping, off-roading, reading, and drawing.</p>
@@ -47,9 +49,7 @@ export default function About({ allPostsData, className }) {
                 <p className="pt-4">You can email me at eric@ericturner.dev .</p>
             </section>
 
-            <Link href="/">
-                <a className="block font-semibold mt-6 px-6 md:mt-10 md:px-10">← Back to home</a>
-            </Link>
+            <Back href="/" label="home" />
 
             <footer className="mb-10">
             </footer>

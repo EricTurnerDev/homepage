@@ -1,15 +1,16 @@
-import styles from './navbar.module.css';
 import Link from 'next/link';
-import Config from '../lib/config';
 import {useState} from "react";
 import classNames from "classnames";
+import {HomeIcon} from "@heroicons/react/outline";
+import {NewspaperIcon} from "@heroicons/react/outline";
+import {UserIcon} from "@heroicons/react/outline";
 
 export default function Navbar({ className }) {
 
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return (
-        <nav className={classNames('navbar sticky top-0 bg-white/90 px-2 py-1', className)}>
+        <nav className={classNames('navbar sticky top-0 bg-white/90 px-2 py-1 z-10', className)}>
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
@@ -38,17 +39,23 @@ export default function Navbar({ className }) {
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">
                         <li>
                             <Link href="/">
-                                <a className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0">Home</a>
+                                <a className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0">
+                                    <HomeIcon className="inline h-4 w-4" /> Home
+                                </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/blog">
-                                <a className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Blog</a>
+                                <a className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                                    <NewspaperIcon className="inline h-4 w-4" /> Blog
+                                </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/about">
-                                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">About</a>
+                                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                                    <UserIcon className="inline h-4 w-4" /> About
+                                </a>
                             </Link>
                         </li>
                     </ul>
