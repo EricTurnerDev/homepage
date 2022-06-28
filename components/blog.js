@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Navbar from "./navbar";
 import Posts from './posts';
-import Link from "next/link";
 import classNames from "classnames";
 import Back from "./back";
 

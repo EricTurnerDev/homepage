@@ -9,7 +9,7 @@ export default function Posts({postsData, className}) {
         <ul className={classNames(className)}>
             {postsData.map(({slug, title, subtitle, author, date, excerpt}) => (
                 <li className="mt-8 first:mt-0" key={slug}>
-                    <h3 className="text-lg font-semibold">
+                    <h3>
                         <Link href={`/posts/${slug}`}>
                             <a>{title}</a>
                         </Link>

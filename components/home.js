@@ -1,4 +1,3 @@
-import styles from './home.module.css';
 import Head from "next/head";
 import Navbar from "./navbar";
 import Posts from './posts';
@@ -25,12 +24,12 @@ export default function Home({ allPostsData, className}) {
             <Navbar />
 
             <section className="hero flex flex-col items-center py-6 bg-blue-200 md:py-10">
-                <h1 className="text-2xl font-semibold md:text-3xl">Hi, I&apos;m Eric</h1>
-                <h2 className="text-xl font-semibold md:text-2xl"> Welcome to my site</h2>
+                <h1>Hi, I&apos;m Eric</h1>
+                <h2>Welcome to my site</h2>
             </section>
 
             <section className="blog-posts mt-4 px-6 md:px-10 md:mt-8">
-                <h2 className="text-xl font-semibold">Blog Posts</h2>
+                <h2>Blog Posts</h2>
                 <Posts className="mt-4" postsData={allPostsData.slice(0, maxPosts)} />
                 <Link href="/blog"><a className="block font-semibold mt-8">Read all blog posts</a></Link>
             </section>

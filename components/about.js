@@ -9,7 +9,7 @@ export default function About({ className }) {
     const siteTitle = 'About - ericturner.dev';
 
     return (
-        <div className={classNames(className)}>
+        <div className={classNames('about', className)}>
             <Head>
                 <title>{siteTitle}</title>
                 <link rel="icon" href="/favicon.ico"/>
@@ -29,24 +29,24 @@ export default function About({ className }) {
                     Photo by <ExternalLink href="https://www.instagram.com/alicia.fyfe.1/">Alicia Fyfe</ExternalLink>
                 </p>
 
-                <h2 className="font-semibold mt-6 text-xl">About Me</h2>
-                <p className="pt-4">I am a sporadically-retired ☺️ software developer living near Annapolis, Maryland.️</p>
+                <h2>About Me</h2>
+                <p>I am a sporadically-retired ☺️ software developer living near Annapolis, Maryland.️</p>
 
-                <h2 className="font-semibold mt-6 text-xl">Professional Background</h2>
-                <p className="pt-4">I have worked as a Software Engineer since 2001 on projects for Entegra Systems (recently acquired by Acclaim Technical Services), Boeing, and Microsoft.</p>
+                <h2>Professional Background</h2>
+                <p>I have worked as a Software Engineer since 2001 on projects for Entegra Systems (recently acquired by Acclaim Technical Services), Boeing, and Microsoft.</p>
 
-                <p className="pt-4">Recently I started Turner Software Development LLC to work as an independent contractor with a company developing a VR (Virtual Reality) product.</p>
+                <p>Recently I started Turner Software Development LLC to work as an independent contractor with a company developing a VR (Virtual Reality) product.</p>
 
-                <p className="pt-4">Prior to 2001 I worked as the Production Systems Technician at <ExternalLink href="https://www.bellinghamherald.com/">The Bellingham Herald</ExternalLink> newspaper in my hometown of <ExternalLink href="https://www.bellingham.org/">Bellingham, Washington</ExternalLink>.</p>
+                <p>Prior to 2001 I worked as the Production Systems Technician at <ExternalLink href="https://www.bellinghamherald.com/">The Bellingham Herald</ExternalLink> newspaper in my hometown of <ExternalLink href="https://www.bellingham.org/">Bellingham, Washington</ExternalLink>.</p>
 
-                <h2 className="font-semibold mt-6 text-xl">Education</h2>
-                <p className="pt-4">I hold B.S. Computer Science and B.A. Spanish degrees from <ExternalLink href="https://www.wwu.edu/">Western Washington University</ExternalLink>.</p>
+                <h2>Education</h2>
+                <p>I hold B.S. Computer Science and B.A. Spanish degrees from <ExternalLink href="https://www.wwu.edu/">Western Washington University</ExternalLink>.</p>
 
-                <h2 className="font-semibold mt-6 text-xl">Interests</h2>
-                <p className="pt-4">3D printing, amateur radio (callsign KC3SVJ), kayak sailing, hiking, camping, off-roading, reading, and drawing.</p>
+                <h2>Interests</h2>
+                <p>3D printing, amateur radio (callsign KC3SVJ), kayak sailing, hiking, camping, off-roading, reading, and drawing.</p>
 
-                <h2 className="font-semibold mt-6 text-xl">Contact Information</h2>
-                <p className="pt-4">You can email me at eric@ericturner.dev .</p>
+                <h2>Contact Information</h2>
+                <p>You can email me at eric@ericturner.dev .</p>
             </section>
 
             <Back href="/" label="home" />
