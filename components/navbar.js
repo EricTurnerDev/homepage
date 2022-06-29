@@ -10,17 +10,16 @@ export default function Navbar({ className }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return (
-        <nav className={classNames('navbar sticky top-0 bg-white/90 px-2 py-1 z-10', className)}>
+        <nav className={classNames('navbar sticky top-0 bg-white/90 dark:bg-slate-800/90 px-2 py-1 z-10', className)}>
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
-                        {/*<img src={Config.profileImage.path} className="mr-3 h-8" alt="Kayak Sailing"/>*/}
-                        <span className="text-xl font-semibold whitespace-nowrap">ericturner.dev</span>
+                        <span className="text-xl font-semibold whitespace-nowrap text-black dark:text-white">ericturner.dev</span>
                     </a>
                 </Link>
                 <button type="button"
                         onClick={() => setNavbarOpen(!navbarOpen)}
-                        className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+                        className="inline-flex items-center p-2 ml-3 text-sm text-black dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
                         aria-controls="mobile-menu" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -39,21 +38,21 @@ export default function Navbar({ className }) {
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">
                         <li>
                             <Link href="/">
-                                <a className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0">
+                                <a className="block py-2 pr-4 pl-3 rounded hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:p-0">
                                     <HomeIcon className="inline h-4 w-4" /> Home
                                 </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/blog">
-                                <a className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                                <a className="block py-2 pr-4 pl-3 hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:p-0">
                                     <NewspaperIcon className="inline h-4 w-4" /> Blog
                                 </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/about">
-                                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                                <a className="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:p-0">
                                     <UserIcon className="inline h-4 w-4" /> About
                                 </a>
                             </Link>

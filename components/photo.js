@@ -8,11 +8,12 @@ export default function Photo({src, alt, width, height, photographerName, photog
             <Image width={width ? width : 400}
                    height={height ? height : 400}
                    src={src}
-                   alt={alt ? alt : 'Missing a description of the photo'}/>
+                   alt={alt ? alt : 'Missing a description of the photo'}
+                    className="rounded-lg"/>
             {
                 photographerName &&
-                <p className="text-sm font-light text-gray-500">
-                    Photo by {photographerUrl ? <ExternalLink href={photographerUrl}>{photographerName}</ExternalLink> : photographerName}
+                <p className="text-sm font-extralight">
+                    Photo by {photographerUrl ? <ExternalLink className="text-slate-800 dark:text-slate-300" href={photographerUrl}>{photographerName}</ExternalLink> : photographerName}
                 </p>
             }
         </div>
