@@ -1,5 +1,4 @@
 import { getMDXComponent } from 'mdx-bundler/client';
-import Head from 'next/head';
 import { useMemo } from 'react';
 import Date from './date';
 
