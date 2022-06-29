@@ -10,7 +10,7 @@ export default function Navbar({ className }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return (
-        <nav className={classNames('navbar sticky top-0 bg-white/90 dark:bg-slate-800/90 px-2 py-1 z-10', className)}>
+        <nav className={classNames('navbar sticky top-0 bg-gray-200 dark:bg-gray-900/90 px-2 py-1 z-10', className)}>
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
