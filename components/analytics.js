@@ -1,12 +1,14 @@
-import Script from "next/script";
+import Script from "next/script"
+import Config from '../lib/config';
 
 export default function Analytics() {
+    // Note: It appears that Cloudflare is only recording visits (i.e. when someone navigates to your
+    // website directly or from an external referrer). Navigation within a site is not being tracked.
     const src = 'https://static.cloudflareinsights.com/beacon.min.js';
-    const token = "b4d83cf5c97b483594f68da0b953ad70";
     return (
         <Script
             strategy="afterInteractive"
             src={src}
-            data-cf-beacon={`{"token": "${token}"}`} />
+            data-cf-beacon={`{"token": "${Config.analytics.token}"}`} />
     )
 }
