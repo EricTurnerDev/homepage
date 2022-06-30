@@ -3,7 +3,7 @@ import Head from "next/head";
 import Navbar from "./navbar";
 import Analytics from "./analytics";
 
-export default function Layout({ siteTitle, children, className }) {
+export default function Layout({siteTitle, children, className}) {
     return (
         <div className={classNames('layout', className)}>
             <Head>
@@ -17,11 +17,11 @@ export default function Layout({ siteTitle, children, className }) {
                 <meta name="og:title" content={siteTitle}/>
             </Head>
 
-            <Navbar />
+            <Navbar/>
 
             {children}
 
-            <Analytics />
+            <Analytics/>
         </div>
     )
 }
