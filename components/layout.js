@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import Head from "next/head";
 import Navbar from "./navbar";
-import Analytics from "./analytics";
 
 export default function Layout({siteTitle, children, className}) {
     return (
@@ -20,8 +19,6 @@ export default function Layout({siteTitle, children, className}) {
             <Navbar/>
 
             {children}
-
-            <Analytics/>
         </div>
     )
 }
