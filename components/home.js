@@ -10,7 +10,7 @@ export default function Home({allPostsData, className}) {
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
-            <section className="hero flex flex-col items-center py-6 bg-blue-200 dark:bg-slate-700 md:py-10">
+            <section className="hero flex flex-col items-center p-5 bg-blue-200 dark:bg-slate-700 md:py-10">
                 <div className="flex flex-row items-center">
                     <Image
                         className="rounded-lg"

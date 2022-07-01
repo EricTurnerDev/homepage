@@ -16,3 +16,7 @@
 .blogContent img {
     border-radius: 0.5rem;
 }
+
+.blogContent iframe {
+    width: 100%;
+}

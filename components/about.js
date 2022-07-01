@@ -16,7 +16,7 @@ export default function About({ className }) {
     return (
         <Layout siteTitle={siteTitle} className={classNames('about', className)}>
             <section className="mt-4 px-6 md:mt-8 md:px-10">
-                <Photo src="/images/profile.jpg"
+                <Photo src="/images/kayak-sailing.jpg"
                        alt="Eric Turner kayak sailing"
                        width={400}
                        height={425}
