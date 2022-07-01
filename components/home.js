@@ -16,7 +16,7 @@ export default function Home({ allPostsData, className}) {
 
             <section className="blog-posts mt-4 px-6 md:px-10 md:mt-8">
                 <h2>Blog Posts</h2>
-                <Posts className="mt-5 pl-3" postsData={allPostsData.slice(0, maxPosts)} />
+                <Posts className="mt-5" postsData={allPostsData.slice(0, maxPosts)} />
                 <Link href="/blog"><a className="block font-semibold mt-8">Read all blog posts</a></Link>
             </section>
 
