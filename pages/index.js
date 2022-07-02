@@ -1,5 +1,6 @@
 import Home from '../components/home';
 import {getSortedPostsData} from "../lib/posts";
+import Config from "../lib/config";
 
 /**
  * Causes next.js to fetch data before static (build time) pre-rendering.
@@ -11,10 +12,10 @@ import {getSortedPostsData} from "../lib/posts";
  * @returns {Promise<{props: {allPostsData}}>}
  */
 export async function getStaticProps() {
-    const allPostsData = getSortedPostsData();
+    const postsData = getSortedPostsData(Config.maxHomePagePosts);
     return {
         props: {
-            allPostsData,
+            postsData,
         },
     };
 }

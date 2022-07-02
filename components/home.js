@@ -4,9 +4,8 @@ import classNames from 'classnames';
 import Layout from './layout';
 import Image from "next/image";
 
-export default function Home({allPostsData, className}) {
+export default function Home({postsData, className}) {
     const siteTitle = 'Home - ericturner.dev';
-    const maxPosts = 10;
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
@@ -27,7 +26,7 @@ export default function Home({allPostsData, className}) {
 
             <section className="blog-posts mt-4 px-6 md:px-10 md:mt-8">
                 <h2>Blog Posts</h2>
-                <Posts className="mt-5" postsData={allPostsData.slice(0, maxPosts)}/>
+                <Posts className="mt-5" postsData={postsData}/>
                 <Link href="/blog"><a className="block font-semibold mt-8">Read all blog posts</a></Link>
             </section>
 

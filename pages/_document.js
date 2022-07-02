@@ -1,6 +1,8 @@
 import {Html, Head, Main, NextScript} from 'next/document'
 import Config from '../lib/config';
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default function Document() {
     return (
         <Html>
@@ -8,10 +10,14 @@ export default function Document() {
             <body>
             <Main/>
             <NextScript/>
-            <script
-                defer
-                src='https://static.cloudflareinsights.com/beacon.min.js'
-                data-cf-beacon={`{"token": "${Config.analytics.token}"}`}/>
+
+            {isProduction &&
+                <script
+                    defer
+                    src='https://static.cloudflareinsights.com/beacon.min.js'
+                    data-cf-beacon={`{"token": "${Config.analytics.token}"}`}/>
+            }
+
             </body>
         </Html>
     )

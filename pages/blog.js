@@ -2,10 +2,10 @@ import {getSortedPostsData} from "../lib/posts";
 import Blog from '../components/blog';
 
 export async function getStaticProps() {
-    const allPostsData = getSortedPostsData();
+    const postsData = getSortedPostsData();
     return {
         props: {
-            allPostsData
+            postsData
         }
     }
 }
