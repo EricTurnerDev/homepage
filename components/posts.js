@@ -24,7 +24,7 @@ export default function Posts({postsData, className}) {
                                             alt="Eric kayak sailing"
                                         />
                                     }
-                                    <h3 className="pt-0 my-0 group-hover:underline pl-5">
+                                    <h3 className="pt-0 my-0 group-hover:underline pl-5 w-3/4">
                                         {title}
                                     </h3>
                                 </div>
