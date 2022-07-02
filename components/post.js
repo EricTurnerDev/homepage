@@ -42,7 +42,7 @@ export default function Post({slug, frontmatter, code, className}) {
                     shortname={Config.disqus.shortname}
                     config={
                         {
-                            url: `${Config.url}/posts/${slug}`,
+                            url: `${Config.url}/blog/${slug}`,
                             identifier: slug,
                             title: frontmatter.title,
                             language: 'en_US'

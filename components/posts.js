@@ -10,7 +10,7 @@ export default function Posts({postsData, className}) {
         <ul className={classNames(className)}>
             {postsData.map(({slug, title, subtitle, thumbnail, author, date, categories}) => (
                 <li className="mt-5 first:mt-0 px-5 py-5 rounded-lg bg-gray-200 dark:bg-slate-700" key={slug}>
-                    <Link href={`/posts/${slug}`}>
+                    <Link href={`/blog/${slug}`}>
                         <a className='group hover:no-underline'>
                             {/* Only visible when breakpoint is small */}
                             <div className="md:invisible flex flex-col my-auto py-0 md:w-0 md:h-0">
