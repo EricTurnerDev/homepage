@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import {useState} from "react";
 import classNames from "classnames";
-import {HomeIcon} from "@heroicons/react/outline";
-import {NewspaperIcon} from "@heroicons/react/outline";
-import {UserIcon} from "@heroicons/react/outline";
+import Icon from "./icon";
 
 export default function Navbar({ className }) {
 
@@ -41,21 +39,21 @@ export default function Navbar({ className }) {
                         <li>
                             <Link href="/">
                                 <a className="block py-2 pr-4 pl-3 rounded hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:p-0">
-                                    <HomeIcon className="inline h-4 w-4" /> Home
+                                    <Icon name="home" /> Home
                                 </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/blog">
                                 <a className="block py-2 pr-4 pl-3 rounded hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:p-0">
-                                    <NewspaperIcon className="inline h-4 w-4" /> Blog
+                                    <Icon name="newspaper" /> Blog
                                 </a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/about">
                                 <a className="block py-2 pr-4 pl-3 rounded hover:bg-slate-300 dark:hover:bg-slate-700 md:hover:bg-transparent md:p-0">
-                                    <UserIcon className="inline h-4 w-4" /> About
+                                    <Icon name="user" /> About
                                 </a>
                             </Link>
                         </li>
