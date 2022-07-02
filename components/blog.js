@@ -8,14 +8,11 @@ export default function Blog({ postsData, className }) {
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('blog', className)}>
-            <section className="mt-4 px-6 md:mt-8 md:px-10">
+            <section className="flex flex-col items-center">
+                <div className="max-w-6xl px-5 mt-5">
                 <Posts postsData={postsData} />
+                </div>
             </section>
-
-            <Back href="/" label="Home" />
-
-            <footer className="mb-10">
-            </footer>
         </Layout>
     )
 }

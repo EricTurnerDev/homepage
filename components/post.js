@@ -15,9 +15,9 @@ export default function Post({slug, frontmatter, code, className}) {
 
     return (
         <Layout siteTitle={frontmatter.title} className={classNames('post', className)}>
-            <main>
-                <article className="mt-4 px-6 md:mt-8 md:px-10">
-                    <h1>{frontmatter.title}</h1>
+            <section className="flex flex-col items-center">
+                <article className="max-w-6xl p-5 md:p-10 dark:bg-slate-700">
+                    <h1 className="pt-0">{frontmatter.title}</h1>
                     <div className="metadata mt-2">
                         <p>{frontmatter.author}</p>
                         <p><Date dateString={frontmatter.date}/></p>
@@ -30,25 +30,23 @@ export default function Post({slug, frontmatter, code, className}) {
                         }}/>
                     </div>
                 </article>
-            </main>
+            </section>
 
-            <Back href="/" label="home"/>
-
-            <DiscussionEmbed
-                className='mt-4 px-6 md:mt-8 md:px-10'
-                shortname={Config.disqus.shortname}
-                config={
-                    {
-                        url: `${Config.url}/posts/${slug}`,
-                        identifier: slug,
-                        title: frontmatter.title,
-                        language: 'en_US'
+            <section className="max-w-6xl mx-auto">
+                <DiscussionEmbed
+                    className='mt-4 px-6 md:mt-8 md:px-10'
+                    shortname={Config.disqus.shortname}
+                    config={
+                        {
+                            url: `${Config.url}/posts/${slug}`,
+                            identifier: slug,
+                            title: frontmatter.title,
+                            language: 'en_US'
+                        }
                     }
-                }
-            />
+                />
+            </section>
 
-            <footer className="mb-10">
-            </footer>
         </Layout>
     );
 }

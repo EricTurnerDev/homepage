@@ -7,7 +7,7 @@ export default function Posts({postsData, className}) {
     return (
         <ul className={classNames(className)}>
             {postsData.map(({slug, title, subtitle, thumbnail, author, date}) => (
-                <li className="mt-8 first:mt-0 px-5 py-5 rounded-lg bg-gray-200 dark:bg-slate-700" key={slug}>
+                <li className="mt-5 first:mt-0 px-5 py-5 rounded-lg bg-gray-200 dark:bg-slate-700" key={slug}>
                     <Link href={`/posts/${slug}`}>
                         <a className='group hover:no-underline'>
                             {/* Only visible when breakpoint is small */}
