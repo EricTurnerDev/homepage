@@ -15,7 +15,7 @@ export default function Document() {
                 <script
                     defer
                     src='https://static.cloudflareinsights.com/beacon.min.js'
-                    data-cf-beacon={`{"token": "${Config.analytics.token}"}`}/>
+                    data-cf-beacon={`{"token": "${Config.analytics.token}", "spa": true}`}/>
             }
 
             </body>
