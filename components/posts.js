@@ -30,17 +30,17 @@ export default function Posts({postsData, className}) {
                                         <h3 className="group-hover:underline py-0">
                                             {title}
                                         </h3>
-                                        <div className="metadata flex flex-row">
-                                            <p className="mr-2"><Icon name="user" /> {author}</p>
-                                            <p className="mx-2"><Icon name="calendar" /> <Date dateString={date}/></p>
-                                        </div>
-                                        <div className="flex flex-row">
-                                            {categories && categories.map(category => (<Category key={category}>{category}</Category>))}
-                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col">
                                     <h4 className="mt-0 font-normal">{subtitle}</h4>
+                                    <div className="metadata flex flex-row">
+                                        <p className="mr-2"><Icon name="user" /> {author}</p>
+                                        <p className="mx-2"><Icon name="calendar" /> <Date dateString={date}/></p>
+                                    </div>
+                                    <div className="flex flex-row">
+                                        {categories && categories.map(category => (<Category key={category}>{category}</Category>))}
+                                    </div>
                                 </div>
                             </div>
 
