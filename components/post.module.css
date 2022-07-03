@@ -1,4 +1,4 @@
-.blogContent ul {
+.blogContent ul, .blogContent ol {
     list-style-type: revert;
     padding-left: revert;
 }
