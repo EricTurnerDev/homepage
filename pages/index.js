@@ -1,5 +1,5 @@
 import Home from '../components/home';
-import {getSortedPostsData} from "../lib/posts";
+import {getSortedPosts} from "../lib/posts";
 import Config from "../lib/config";
 
 /**
@@ -12,7 +12,7 @@ import Config from "../lib/config";
  * @returns {Promise<{props: {allPostsData}}>}
  */
 export async function getStaticProps() {
-    const postsData = getSortedPostsData(Config.maxHomePagePosts);
+    const postsData = getSortedPosts({maxPosts: Config.maxHomePagePosts});
     return {
         props: {
             postsData,

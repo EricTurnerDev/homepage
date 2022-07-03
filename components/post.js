@@ -8,7 +8,7 @@ import styles from './post.module.css';
 import SyntaxHighlighter from "./syntaxHighlighter";
 import classNames from "classnames";
 import Layout from './layout';
-import Category from "./category";
+import CategoryLink from "./categoryLink";
 import Icon from "./icon";
 
 export default function Post({slug, frontmatter, code, className}) {
@@ -25,7 +25,7 @@ export default function Post({slug, frontmatter, code, className}) {
                     </div>
                     {frontmatter.categories &&
                         <p>Posted in <span className="pl-2">{frontmatter.categories.map(category => (
-                            <Category key={category}>{category}</Category>))}</span></p>}
+                            <CategoryLink key={category}>{category}</CategoryLink>))}</span></p>}
                     <div className={`${styles.blogContent} mt-4`}>
                         {/* Pass components commonly used in MDX files, so you don't have to explicitly import them. */}
                         <Component components={{

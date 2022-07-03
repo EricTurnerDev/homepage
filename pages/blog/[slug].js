@@ -1,4 +1,4 @@
-import {getAllPostSlugs, getPostData} from '../../lib/posts';
+import {getAllSlugPaths, getPostData} from '../../lib/posts';
 import Post from '../../components/post';
 
 /**
@@ -18,7 +18,7 @@ export async function getStaticProps({params}) {
  * Used by nextjs for dynamic routes, so it knows all possible values for the path parameter.
  */
 export async function getStaticPaths() {
-    const paths = getAllPostSlugs();
+    const paths = getAllSlugPaths();
     return {
         paths,
         fallback: false,

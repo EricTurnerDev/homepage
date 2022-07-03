@@ -1,11 +1,13 @@
-import {getSortedPostsData} from "../lib/posts";
+import {getSortedPosts, getAllCategories} from "../lib/posts";
 import Blog from '../components/blog';
 
 export async function getStaticProps() {
-    const postsData = getSortedPostsData();
+    const postsData = getSortedPosts();
+    const categories = getAllCategories();
     return {
         props: {
-            postsData
+            postsData,
+            categories,
         }
     }
 }
