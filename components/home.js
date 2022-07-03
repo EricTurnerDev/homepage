@@ -31,9 +31,6 @@ export default function Home({postsData, className}) {
                     <Link href="/blog"><a className="block font-semibold mt-10">Read all blog posts</a></Link>
                 </div>
             </section>
-
-            <footer className="mb-10">
-            </footer>
         </Layout>
     );
 }

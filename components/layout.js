@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Head from "next/head";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 export default function Layout({siteTitle, children, className}) {
     return (
@@ -19,6 +20,8 @@ export default function Layout({siteTitle, children, className}) {
             <Navbar/>
 
             {children}
+
+            <Footer />
         </div>
     )
 }
