@@ -68,8 +68,8 @@ function SmallPostCard({title, subtitle, thumbnail, author, date, categories}) {
     return (
         <div className="md:invisible flex flex-col my-auto py-0 md:w-0 md:h-0">
             <div className="flex flex-row">
-                <Thumbnail thumbnail={thumbnail} width={100} height={100}/>
-                <div className="flex flex-col justify-around pl-5 w-3/4">
+                <Thumbnail thumbnail={thumbnail} width={150} height={150}/>
+                <div className="flex flex-col justify-around pl-5 w-1/2 xs:w-3/4">
                     <Title title={title}/>
                     <Metadata date={date} author={author}/>
                     <Categories categories={categories}/>
