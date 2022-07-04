@@ -9,5 +9,5 @@ module.exports = {
             {userAgent: "*", allow: "/"},
         ],
     },
-    exclude: ['/blog/category/*']
+    exclude: ["/blog/category/*", "/googleecd7ade0a7184c71.html"]
 };
