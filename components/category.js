@@ -1,6 +1,9 @@
 // Categories:
+// 3D Printing
 // Announcements
 // Automotive
+// Cooking
+// Ham Radio
 // Hiking,
 // Nature
 

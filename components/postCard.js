@@ -31,9 +31,9 @@ function Categories({categories}) {
 
 function Metadata({date, author}) {
     return (
-        <div className="metadata flex flex-row">
-            <p className="mr-2"><Icon name="calendar"/> <Date dateString={date}/></p>
-            <p className="mx-2"><Icon name="user"/> {author}</p>
+        <div className="metadata flex flex-col xs:flex-row">
+            <p className="xs:mr-4"><Icon name="calendar"/> <Date dateString={date}/></p>
+            <p><Icon name="user"/> {author}</p>
         </div>
     )
 }
@@ -50,13 +50,13 @@ function Thumbnail({thumbnail, width, height}) {
     return (
         <div className="thumbnail">
             {thumbnail &&
-                <Photo src={thumbnail} width={100} height={100}/>
+                <Photo src={thumbnail} width={width} height={height}/>
             }
             {!thumbnail &&
                 <Photo
                     src={defaultThumbnailUrl}
-                    width={100}
-                    height={100}
+                    width={width}
+                    height={width}
                     alt="Eric kayak sailing"
                 />
             }
@@ -71,12 +71,12 @@ function SmallPostCard({title, subtitle, thumbnail, author, date, categories}) {
                 <Thumbnail thumbnail={thumbnail} width={100} height={100}/>
                 <div className="flex flex-col justify-around pl-5 w-3/4">
                     <Title title={title}/>
+                    <Metadata date={date} author={author}/>
+                    <Categories categories={categories}/>
                 </div>
             </div>
             <div className="flex flex-col">
-                <h4 className="-0 font-normal">{subtitle}</h4>
-                <Metadata date={date} author={author}/>
-                <Categories categories={categories}/>
+                <p className="h4">{subtitle}</p>
             </div>
         </div>
     )
@@ -88,9 +88,9 @@ function MediumPostCard({title, subtitle, thumbnail, author, date, categories}) 
             <Thumbnail thumbnail={thumbnail} width={150} height={150} />
             <div className="flex flex-col ml-5 w-3/4 justify-evenly">
                 <Title title={title}/>
-                <h4 className="font-normal">{subtitle}</h4>
                 <Metadata date={date} author={author}/>
                 <Categories categories={categories}/>
+                <p className="h4">{subtitle}</p>
             </div>
         </div>
     )

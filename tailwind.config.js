@@ -7,6 +7,10 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
+        screens: {
+            'xs': '475px',
+            ...defaultTheme.screens,
+        },
         fontFamily: {
             sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans]
         },
