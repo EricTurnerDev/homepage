@@ -12,6 +12,7 @@ export default function Home({postsData, className}) {
             <section className="hero flex flex-col items-center bg-blue-200 dark:bg-slate-700">
                 <div className="flex flex-row items-center py-5 md:py-10">
                     <Image
+                        alt="Eric profile"
                         className="rounded-lg"
                         src="/images/profile.jpg"
                         width={384/4}
