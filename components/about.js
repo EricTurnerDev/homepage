@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import ExternalLink from "./externalLink";
-import Back from "./back";
 import Photo from './photo';
 import EmailAddress from "./emailAddress";
 import Layout from './layout';
