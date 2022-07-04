@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import {ExternalLinkIcon} from "@heroicons/react/outline";
+import classNames from 'classnames';
+import {ExternalLinkIcon} from '@heroicons/react/outline';
 
 interface ExternalLinkProps {
     href: string;
-    rel: string;
-    className: string;
+    rel?: string;
+    className?: string;
     children: JSX.Element | JSX.Element[];
 }
 
