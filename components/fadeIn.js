@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import classNames from "classnames";
 
-export default function FadeIn({delay=0, className, children}) {
+export default function FadeIn({delay=0, duration=200, className, children}) {
     const [opacity, setOpacity] = useState(`opacity-0`);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ export default function FadeIn({delay=0, className, children}) {
     }, [opacity]);
 
     return (
-        <div className={classNames('fader transition-opacity ease-in duration-1000', opacity, className)}>
+        <div className={classNames('fader transition-opacity ease-in', `duration-${duration}`, opacity, className)}>
             {children}
         </div>
     )

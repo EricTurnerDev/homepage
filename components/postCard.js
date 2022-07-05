@@ -31,9 +31,13 @@ function Categories({categories}) {
 
 function Metadata({date, author}) {
     return (
-        <div className="metadata flex flex-col xs:flex-row">
-            <p className="xs:mr-4"><Icon name="calendar"/> <Date dateString={date}/></p>
-            <p><Icon name="user"/> {author}</p>
+        <div className="metadata flex flex-row">
+            <p className="mr-3">
+                <Icon className="mr-1" name="calendar"/> <Date dateString={date}/>
+            </p>
+            <p>
+                <Icon className="mr-1" name="user"/>{author}
+            </p>
         </div>
     )
 }
@@ -67,15 +71,15 @@ function Thumbnail({thumbnail, width, height}) {
 function SmallPostCard({title, subtitle, thumbnail, author, date, categories}) {
     return (
         <div className="md:invisible flex flex-col my-auto py-0 md:w-0 md:h-0">
-            <div className="flex flex-row">
+            <div className="flex flex-row mb-1">
                 <Thumbnail thumbnail={thumbnail} width={150} height={150}/>
-                <div className="flex flex-col justify-around pl-5 w-1/2 xs:w-3/4">
+                <div className="flex flex-col justify-around pl-5 w-3/4">
                     <Title title={title}/>
-                    <Metadata date={date} author={author}/>
-                    <Categories categories={categories}/>
                 </div>
             </div>
             <div className="flex flex-col">
+                <Metadata date={date} author={author}/>
+                {/*<Categories categories={categories}/>*/}
                 <p className="h4">{subtitle}</p>
             </div>
         </div>

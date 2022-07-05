@@ -8,7 +8,7 @@ const icons = {
     user: <UserIcon className={className} />
 }
 
-export default function Icon({name}) {
+export default function Icon({name, className}) {
     const icon = icons[name] ? icons[name] : <span></span>;
-    return (icon);
+    return (<span className={className}>{icon}</span>);
 }
