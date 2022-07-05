@@ -1,8 +1,9 @@
-import Posts from './posts';
-import Link from 'next/link';
 import classNames from 'classnames';
-import Layout from './layout';
 import Image from "next/image";
+import Link from 'next/link';
+import FadeIn from './fadeIn';
+import Layout from './layout';
+import Posts from './posts';
 
 export default function Home({postsData, className}) {
     const siteTitle = 'Home - ericturner.dev';
@@ -10,19 +11,19 @@ export default function Home({postsData, className}) {
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
             <section className="hero flex flex-col items-center bg-blue-200 dark:bg-slate-700">
-                <div className="flex flex-row items-center py-5 md:py-10">
-                    <Image
-                        alt="Eric profile"
-                        className="rounded-lg"
-                        src="/images/profile.jpg"
-                        width={384/4}
-                        height={466/4}
-                    />
-                    <div className="flex flex-col ml-5">
-                        <h1>Hi, I&apos;m Eric</h1>
-                        <h2>Welcome to my site</h2>
-                    </div>
-                </div>
+                    <FadeIn className="flex flex-row items-center py-5 md:py-10">
+                        <Image
+                            alt="Eric profile"
+                            className="rounded-lg"
+                            src="/images/profile.jpg"
+                            width={384 / 4}
+                            height={466 / 4}
+                        />
+                        <div className="flex flex-col ml-5">
+                            <h1>Hi, I&apos;m Eric</h1>
+                            <h2>Welcome to my site</h2>
+                        </div>
+                    </FadeIn>
             </section>
 
             <section className="blog-posts flex flex-col items-center">

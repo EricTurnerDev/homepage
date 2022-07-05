@@ -1,8 +1,9 @@
-import classNames from "classnames";
-import ExternalLink from "./externalLink";
-import Photo from './photo';
-import EmailAddress from "./emailAddress";
+import classNames from 'classnames';
+import EmailAddress from './emailAddress';
+import ExternalLink from './externalLink';
+import FadeIn from './fadeIn';
 import Layout from './layout';
+import Photo from './photo';
 
 export default function About({className}) {
     const siteTitle = 'About - ericturner.dev';
@@ -16,13 +17,14 @@ export default function About({className}) {
         <Layout siteTitle={siteTitle} className={classNames('about', className)}>
             <section className="flex flex-col items-center">
                 <div className="max-w-6xl p-5 dark:bg-slate-700 md:p-10">
-                    <Photo src="/images/kayak-sailing.jpg"
-                           alt="Eric Turner kayak sailing"
-                           width={400}
-                           height={425}
-                           photographerName="Alicia Fyfe"
-                           photographerUrl="https://www.instagram.com/alicia.fyfe.1/"/>
-
+                    <FadeIn>
+                        <Photo src="/images/kayak-sailing.jpg"
+                               alt="Eric Turner kayak sailing"
+                               width={400}
+                               height={425}
+                               photographerName="Alicia Fyfe"
+                               photographerUrl="https://www.instagram.com/alicia.fyfe.1/"/>
+                    </FadeIn>
                     <h2 className="mt-2">About Me</h2>
                     <p>I am an independent/freelance software developer with {numYearsExperience()} years of experience,
                         currently living near Annapolis, Maryland.️</p>
