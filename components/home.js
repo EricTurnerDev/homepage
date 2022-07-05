@@ -11,7 +11,7 @@ export default function Home({postsData, className}) {
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
             <section className="hero flex flex-col items-center bg-blue-200 dark:bg-slate-700">
-                    <FadeIn className="flex flex-row items-center py-5 md:py-10" duration={1000}>
+                    <FadeIn className="flex flex-row items-center py-5 md:py-10" duration={100}>
                         <Image
                             alt="Eric profile"
                             className="rounded-lg"

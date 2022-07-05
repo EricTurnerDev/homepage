@@ -19,7 +19,7 @@ export default function Post({slug, frontmatter, code, className}) {
             <section className="flex flex-col items-center">
                 <article className="flex flex-col max-w-6xl p-5 md:p-10 dark:bg-slate-700">
                     <FadeIn className="flex flex-col items-center">
-                        <h1 className="pt-0">{frontmatter.title}</h1>
+                        <h1 className="pt-0 text-center">{frontmatter.title}</h1>
                         <div className="metadata flex flex-row mt-2">
                             <p className="mx-2"><Icon name="calendar"/> <Date dateString={frontmatter.date}/></p>
                             <p className="mx-2"><Icon name="user"/> {frontmatter.author}</p>

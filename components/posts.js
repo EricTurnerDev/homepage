@@ -7,7 +7,7 @@ export default function Posts({postsData, className}) {
         <ul className={classNames(className)}>
             {postsData.map((postData, i) => (
                 <li className="mt-5 first:mt-0 px-5 py-5 rounded-lg bg-gray-200 dark:bg-slate-700" key={postData.slug}>
-                    <FadeIn delay={i*100} duration={200}>
+                    <FadeIn delay={i*100}>
                         <PostCard {...postData} />
                     </FadeIn>
                 </li>

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import classNames from "classnames";
 
-export default function FadeIn({delay=0, duration=200, className, children}) {
+export default function FadeIn({delay=0, duration=500, className, children}) {
     const [opacity, setOpacity] = useState(`opacity-0`);
 
     useEffect(() => {
