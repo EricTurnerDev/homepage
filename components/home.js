@@ -28,7 +28,7 @@ export default function Home({postsData, className}) {
 
             <section className="blog-posts flex flex-col items-center">
                 <div className="max-w-6xl px-5 mt-5">
-                    <h2>Blog Posts</h2>
+                    <h2>Recent articles</h2>
                     <Posts className="mt-5" postsData={postsData}/>
                     <Link href="/blog"><a className="block font-semibold mt-10">Read all blog posts</a></Link>
                 </div>
