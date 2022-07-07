@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Photo from "./photo";
 import Icon from "./icon";
 import Date from "./date";
-import Category from "./category";
+import Category, {Categories} from "./category";
+import {PostProps} from "./posts";
 
 const defaultThumbnailUrl = "https://i.imgur.com/eNqj5kc.jpg";
 
-export default function PostCard(postData) {
+export default function PostCard(postData: PostProps) {
     return (
         <Link href={`/blog/${postData.slug}`}>
             <a className='postcard group hover:no-underline'>
@@ -20,7 +21,11 @@ export default function PostCard(postData) {
     )
 }
 
-function Categories({categories}) {
+interface CategoriesProps {
+    categories: Categories[];
+}
+
+function Categories({categories}: CategoriesProps) {
     return (
         <div className="categories flex flex-row">
             {categories && categories.map(category => (
@@ -29,11 +34,16 @@ function Categories({categories}) {
     )
 }
 
-function Metadata({date, author}) {
+interface MetadataProps {
+    date: string;
+    author: string;
+}
+
+function Metadata({date, author}: MetadataProps) {
     return (
         <div className="metadata flex flex-row">
             <p className="mr-3">
-                <Icon className="mr-1" name="calendar"/> <Date dateString={date}/>
+                <Icon className="mr-1" name="calendar"/> <Date date={date}/>
             </p>
             <p>
                 <Icon className="mr-1" name="user"/>{author}
@@ -42,7 +52,11 @@ function Metadata({date, author}) {
     )
 }
 
-function Title({title}) {
+interface TitleProps {
+    title: string;
+}
+
+function Title({title}: TitleProps) {
     return (
         <h3 className="title group-hover:underline py-0 my-0">
             {title}
@@ -50,7 +64,14 @@ function Title({title}) {
     )
 }
 
-function Thumbnail({thumbnail, width, height, alt}) {
+interface ThumbnailProps {
+    thumbnail?: string;
+    width: number;
+    height: number;
+    alt: string;
+}
+
+function Thumbnail({thumbnail, width, height, alt}: ThumbnailProps) {
     return (
         <div className="thumbnail">
             {thumbnail &&
@@ -68,7 +89,7 @@ function Thumbnail({thumbnail, width, height, alt}) {
     )
 }
 
-function SmallPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date}) {
+function SmallPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date}: PostProps) {
     return (
         <div className="md:invisible flex flex-col my-auto py-0 md:w-0 md:h-0">
             <div className="flex flex-row mb-1">
@@ -79,14 +100,13 @@ function SmallPostCard({title, subtitle, thumbnail, thumbnailDescription, author
             </div>
             <div className="flex flex-col">
                 <Metadata date={date} author={author}/>
-                {/*<Categories categories={categories}/>*/}
                 <p className="h4">{subtitle}</p>
             </div>
         </div>
     )
 }
 
-function MediumPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date, categories}) {
+function MediumPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date, categories}: PostProps) {
     return (
         <div className="invisible md:visible h-0 w-0 flex flex-row md:my-auto md:py-0 md:h-auto md:w-auto">
             <Thumbnail thumbnail={thumbnail} alt={thumbnailDescription} width={150} height={150} />

@@ -10,8 +10,16 @@ import Icon from '../icon';
 import Layout from '../layout';
 import styles from './post.module.css';
 import SyntaxHighlighter from '../syntaxHighlighter';
+import {FrontMatterProps} from "../posts";
 
-export default function Post({slug, frontmatter, code, className}) {
+interface PostPageProps {
+    slug: string;
+    frontmatter: FrontMatterProps;
+    code: string;
+    className?: string;
+}
+
+export default function Post({slug, frontmatter, code, className}: PostPageProps) {
     const Component = useMemo(() => getMDXComponent(code), [code]);
 
     return (
@@ -21,7 +29,7 @@ export default function Post({slug, frontmatter, code, className}) {
                     <FadeIn className="flex flex-col items-center">
                         <h1 className="pt-0 text-center">{frontmatter.title}</h1>
                         <div className="metadata flex flex-row mt-2">
-                            <p className="mx-2"><Icon name="calendar"/> <Date dateString={frontmatter.date}/></p>
+                            <p className="mx-2"><Icon name="calendar"/> <Date date={frontmatter.date}/></p>
                             <p className="mx-2"><Icon name="user"/> {frontmatter.author}</p>
                         </div>
                         {frontmatter.categories &&
@@ -39,18 +47,19 @@ export default function Post({slug, frontmatter, code, className}) {
             </section>
 
             <section className="max-w-6xl mx-auto">
-                <DiscussionEmbed
-                    className='mt-4 px-6 md:mt-8 md:px-10'
-                    shortname={Config.disqus.shortname}
-                    config={
-                        {
-                            url: `${Config.url}/blog/${slug}`,
-                            identifier: slug,
-                            title: frontmatter.title,
-                            language: 'en_US'
+                <div className='mt-4 px-6 md:mt-8 md:px-10'>
+                    <DiscussionEmbed
+                        shortname={Config.disqus.shortname}
+                        config={
+                            {
+                                url: `${Config.url}/blog/${slug}`,
+                                identifier: slug,
+                                title: frontmatter.title,
+                                language: 'en_US'
+                            }
                         }
-                    }
-                />
+                    />
+                </div>
             </section>
 
         </Layout>

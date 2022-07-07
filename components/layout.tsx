@@ -3,7 +3,13 @@ import Head from "next/head";
 import Navbar from "./navbar";
 import Footer from "./footer";
 
-export default function Layout({siteTitle, children, className}) {
+interface LayoutProps {
+    siteTitle: string;
+    className?: string;
+    children?: JSX.Element | JSX.Element[];
+}
+
+export default function Layout({siteTitle, className, children}: LayoutProps) {
     return (
         <div className={classNames('layout', className)}>
             <Head>

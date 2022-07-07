@@ -6,11 +6,15 @@ import FadeIn from '../fadeIn';
 import Layout from '../layout';
 import Photo from '../photo';
 
-export default function About({className}) {
-    const siteTitle = 'About - ericturner.dev';
+interface AboutPageProps {
+    className?: string;
+}
+
+export default function About({className}: AboutPageProps) {
+    const siteTitle: string = 'About - ericturner.dev';
 
     const numYearsExperience = () => {
-        const currentYear = new Date().getFullYear();
+        const currentYear: number = new Date().getFullYear();
         return (currentYear - 2001);
     };
 
@@ -18,7 +22,7 @@ export default function About({className}) {
         <Layout siteTitle={siteTitle} className={classNames('about', className)}>
             <section className="flex flex-col items-center">
                 <div className="max-w-6xl p-5 dark:bg-slate-700 md:p-10">
-                    <FadeIn duration={1000}>
+                    <FadeIn delay={125} duration={1000}>
                         <Photo src="/images/kayak-sailing.jpg"
                                alt="Eric Turner kayak sailing"
                                width={400}

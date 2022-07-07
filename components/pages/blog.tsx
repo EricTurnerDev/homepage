@@ -3,8 +3,17 @@ import classNames from "classnames";
 import Layout from '../layout';
 import CategoryLink from '../categoryLink';
 
-export default function Blog({postsData, categories, className}) {
-    const siteTitle = 'Blog - ericturner.dev';
+import {PostProps} from "../posts";
+import {Categories} from "../category";
+
+interface BlogPageProps {
+    postsData: PostProps[];
+    categories: Categories[];
+    className?: string;
+}
+
+export default function Blog({postsData, categories, className}: BlogPageProps) {
+    const siteTitle: string = 'Blog - ericturner.dev';
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('blog', className)}>

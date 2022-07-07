@@ -1,11 +1,15 @@
 import Link from 'next/link';
-import {useState} from "react";
+import {SetStateAction, useState} from "react";
 import classNames from "classnames";
 import Icon from "./icon";
 
-export default function Navbar({ className }) {
+interface NavbarProps {
+    className?: string;
+}
 
-    const [isOpen, setIsOpen] = useState(false);
+export default function Navbar({ className }: NavbarProps) {
+
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
         <nav className={classNames('navbar sticky top-0 bg-gray-200 dark:bg-gray-900/90 px-6 py-1 z-10', className)}>

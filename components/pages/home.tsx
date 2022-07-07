@@ -5,8 +5,15 @@ import FadeIn from '../fadeIn';
 import Layout from '../layout';
 import Posts from '../posts';
 
-export default function Home({postsData, className}) {
-    const siteTitle = 'Home - ericturner.dev';
+import {PostProps} from "../posts";
+
+interface HomePageProps {
+    postsData: PostProps[];
+    className?: string;
+}
+
+export default function Home({postsData, className}: HomePageProps) {
+    const siteTitle: string = 'Home - ericturner.dev';
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
@@ -30,7 +37,7 @@ export default function Home({postsData, className}) {
                 <div className="max-w-6xl px-5 mt-5">
                     <h2>Recent articles</h2>
                     <Posts className="mt-5" postsData={postsData}/>
-                    <Link href="/components/pages/blog"><a className="block font-semibold mt-10">Read all blog posts</a></Link>
+                    <Link href="/blog"><a className="block font-semibold mt-10">Read all blog posts</a></Link>
                 </div>
             </section>
         </Layout>

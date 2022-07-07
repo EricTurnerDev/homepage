@@ -5,7 +5,7 @@ interface ExternalLinkProps {
     href: string;
     rel?: string;
     className?: string;
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | JSX.Element[] | string;
 }
 
 export default function ExternalLink({href, rel='', className, children}: ExternalLinkProps) {

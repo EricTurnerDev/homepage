@@ -2,7 +2,17 @@ import Image from "next/image";
 import ExternalLink from "./externalLink";
 import classNames from "classnames";
 
-export default function Photo({src, alt, width, height, photographerName, photographerUrl, className}) {
+interface PhotoProps {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    photographerName?: string;
+    photographerUrl?: string;
+    className?: string;
+}
+
+export default function Photo({src, alt, width, height, photographerName, photographerUrl, className}: PhotoProps) {
     return (
         <div className={classNames(`photo`, className)}>
             <div className="relative">
@@ -14,8 +24,9 @@ export default function Photo({src, alt, width, height, photographerName, photog
                 {
                     photographerName &&
                     <p className="text-sm absolute bottom-0 pl-2">
-                        Photo by {photographerUrl ? <ExternalLink className="text-slate-800 dark:text-slate-300 font-semibold"
-                                                                  href={photographerUrl}>{photographerName}</ExternalLink> : photographerName}
+                        Photo by {photographerUrl ?
+                        <ExternalLink className="text-slate-800 dark:text-slate-300 font-semibold"
+                                      href={photographerUrl}>{photographerName}</ExternalLink> : photographerName}
                     </p>
                 }
             </div>

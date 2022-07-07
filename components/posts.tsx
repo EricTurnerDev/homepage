@@ -1,8 +1,28 @@
 import classNames from "classnames";
 import FadeIn from "./fadeIn";
 import PostCard from "./postCard";
+import {Categories} from "./category";
 
-export default function Posts({postsData, className}) {
+export interface FrontMatterProps {
+    title: string;
+    subtitle: string;
+    thumbnail: string;
+    thumbnailDescription: string;
+    author: string;
+    date: string;
+    categories?: Categories[];
+}
+
+export interface PostProps extends FrontMatterProps {
+    slug: string;
+}
+
+interface PostsProps {
+    postsData: PostProps[];
+    className?: string;
+}
+
+export default function Posts({postsData, className}: PostsProps) {
     return (
         <ul className={classNames(className)}>
             {postsData.map((postData, i) => (
