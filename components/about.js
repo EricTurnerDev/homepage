@@ -10,7 +10,7 @@ export default function About({className}) {
 
     const numYearsExperience = () => {
         const currentYear = new Date().getFullYear();
-        return (currentYear - 2001) + 1;
+        return (currentYear - 2001);
     };
 
     return (
