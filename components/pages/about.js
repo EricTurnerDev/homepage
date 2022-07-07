@@ -18,7 +18,7 @@ export default function About({className}) {
         <Layout siteTitle={siteTitle} className={classNames('about', className)}>
             <section className="flex flex-col items-center">
                 <div className="max-w-6xl p-5 dark:bg-slate-700 md:p-10">
-                    <FadeIn>
+                    <FadeIn duration={1000}>
                         <Photo src="/images/kayak-sailing.jpg"
                                alt="Eric Turner kayak sailing"
                                width={400}

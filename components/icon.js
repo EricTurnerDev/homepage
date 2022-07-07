@@ -1,4 +1,5 @@
 import {CalendarIcon, HomeIcon, NewspaperIcon, UserIcon} from "@heroicons/react/solid";
+import classNames from "classnames";
 
 const className = "inline h-5 w-5";
 const icons = {
@@ -10,5 +11,5 @@ const icons = {
 
 export default function Icon({name, className}) {
     const icon = icons[name] ? icons[name] : <span></span>;
-    return (<span className={className}>{icon}</span>);
+    return (<span className={classNames('icon', className)}>{icon}</span>);
 }
