@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Config from '../lib/config';
 import EmailAddress from './emailAddress';
 import ExternalLink from './externalLink';
 import FadeIn from './fadeIn';
@@ -51,7 +52,7 @@ export default function About({className}) {
                         reading, and drawing.</p>
 
                     <h2 className="mt-2">Contact Information</h2>
-                    <p>You can email me at <EmailAddress username="eric" domain="ericturner.dev"/> .</p>
+                    <p>You can email me at <EmailAddress username={Config.user.email.username} domain={Config.user.email.domain}/> .</p>
                 </div>
             </section>
         </Layout>
