@@ -50,11 +50,11 @@ function Title({title}) {
     )
 }
 
-function Thumbnail({thumbnail, width, height}) {
+function Thumbnail({thumbnail, width, height, alt}) {
     return (
         <div className="thumbnail">
             {thumbnail &&
-                <Photo src={thumbnail} width={width} height={height}/>
+                <Photo src={thumbnail} width={width} height={height} alt={alt}/>
             }
             {!thumbnail &&
                 <Photo
@@ -68,11 +68,11 @@ function Thumbnail({thumbnail, width, height}) {
     )
 }
 
-function SmallPostCard({title, subtitle, thumbnail, author, date, categories}) {
+function SmallPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date}) {
     return (
         <div className="md:invisible flex flex-col my-auto py-0 md:w-0 md:h-0">
             <div className="flex flex-row mb-1">
-                <Thumbnail thumbnail={thumbnail} width={150} height={150}/>
+                <Thumbnail thumbnail={thumbnail} alt={thumbnailDescription} width={150} height={150}/>
                 <div className="flex flex-col justify-around pl-5 w-3/4">
                     <Title title={title}/>
                 </div>
@@ -86,10 +86,10 @@ function SmallPostCard({title, subtitle, thumbnail, author, date, categories}) {
     )
 }
 
-function MediumPostCard({title, subtitle, thumbnail, author, date, categories}) {
+function MediumPostCard({title, subtitle, thumbnail, thumbnailDescription, author, date, categories}) {
     return (
         <div className="invisible md:visible h-0 w-0 flex flex-row md:my-auto md:py-0 md:h-auto md:w-auto">
-            <Thumbnail thumbnail={thumbnail} width={150} height={150} />
+            <Thumbnail thumbnail={thumbnail} alt={thumbnailDescription} width={150} height={150} />
             <div className="flex flex-col ml-5 w-3/4 justify-evenly">
                 <Title title={title}/>
                 <Metadata date={date} author={author}/>
