@@ -1,4 +1,4 @@
-import Home from '../components/home';
+import Home from '../components/pages/home';
 import {getSortedPosts} from "../lib/posts";
 import Config from "../lib/config";
 

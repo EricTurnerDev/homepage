@@ -1,5 +1,5 @@
 import {getAllCategoryPaths, getSortedPosts} from "../../../lib/posts";
-import Blog from '../../../components/blog';
+import Blog from '../../../components/pages/blog';
 
 export async function getStaticProps({params}) {
     const postsData = await getSortedPosts({category: params.category})

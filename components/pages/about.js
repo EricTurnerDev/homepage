@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import Config from '../lib/config';
-import EmailAddress from './emailAddress';
-import ExternalLink from './externalLink';
-import FadeIn from './fadeIn';
-import Layout from './layout';
-import Photo from './photo';
+import Config from '../../lib/config';
+import EmailAddress from '../emailAddress';
+import ExternalLink from '../externalLink';
+import FadeIn from '../fadeIn';
+import Layout from '../layout';
+import Photo from '../photo';
 
 export default function About({className}) {
     const siteTitle = 'About - ericturner.dev';

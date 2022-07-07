@@ -1,7 +1,7 @@
-import Posts from './posts';
+import Posts from '../posts';
 import classNames from "classnames";
-import Layout from './layout';
-import CategoryLink from './categoryLink';
+import Layout from '../layout';
+import CategoryLink from '../categoryLink';
 
 export default function Blog({postsData, categories, className}) {
     const siteTitle = 'Blog - ericturner.dev';

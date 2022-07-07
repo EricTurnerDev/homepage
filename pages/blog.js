@@ -1,5 +1,5 @@
 import {getSortedPosts, getAllCategories} from "../lib/posts";
-import Blog from '../components/blog';
+import Blog from '../components/pages/blog';
 
 export async function getStaticProps() {
     const postsData = getSortedPosts();

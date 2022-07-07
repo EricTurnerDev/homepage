@@ -1,5 +1,5 @@
 import {getAllSlugPaths, getPostData} from '../../lib/posts';
-import Post from '../../components/post';
+import Post from '../../components/pages/post';
 
 /**
  * Used by nextjs for pre-rendering dynamic routes, so it knows what to construct.
