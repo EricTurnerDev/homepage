@@ -7,7 +7,7 @@ export type Categories =
     "Hiking" |
     "Nature";
 
-interface CategoryProps {
+export interface CategoryProps {
     children: Categories;
 }
 
