@@ -12,7 +12,7 @@ import styles from './post.module.css';
 import SyntaxHighlighter from '../syntaxHighlighter';
 import {FrontMatterProps} from "../posts";
 
-interface PostPageProps {
+export interface PostPageProps {
     slug: string;
     frontmatter: FrontMatterProps;
     code: string;
