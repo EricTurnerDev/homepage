@@ -38,8 +38,8 @@ export default function About({className}: AboutPageProps) {
                     <p>
                         I have worked as a Software Engineer since 2001, starting at Boeing and later working at Entegra
                         Systems (recently acquired by Acclaim Technical Services).
-                        In 2021 I created Turner Software Development LLC to work as an independent contractor with a
-                        company developing a VR (Virtual Reality) product.
+                        In 2021 I created <ExternalLink href="https://turnersoftwaredevelopment.com">Turner Software Development LLC</ExternalLink>
+                        to work as an independent contractor with a company developing a VR (Virtual Reality) product.
                     </p>
 
                     <p>Prior to 2001 I was the Production Systems Technician at <ExternalLink
