@@ -1,0 +1,66 @@
+---
+title: Generate a Sitemap in Next.js
+subtitle: Dynamically generate a sitemap.xml file during a build
+excerpt: Generating a sitemap will improve your site's search results, one
+         of the necessary steps for Search Engine Optimization (SEO). This
+         article describes one way to accomplish this in Next.js.
+author: Eric Turner
+date: '2022-07-09'
+categories:
+  - Programming
+published: true
+---
+import ExternalLink from "../components/externalLink";
+
+Generating a sitemap will improve your site's search results, one
+of the necessary steps for Search Engine Optimization (SEO). This
+article describes one way to accomplish this in Next.js.
+
+Install the Next.js sitemap plugin:
+
+```bash
+npm install next-sitemap
+```
+
+Then follow the <ExternalLink href="https://www.npmjs.com/package/next-sitemap">instructions for using the package</ExternalLink>.
+
+My site lists blog posts under `/blog`, but also under `/blog/category/{category}`. I don't
+want to dilute Google search results with the same content at different paths, so I exclude everything in `/blog/category/*`
+from my sitemap. Here's my `next-sitemap.config.js` file:
+
+```jsx
+const Config = require('./lib/config');
+const siteUrl = Config.url;
+
+module.exports = {
+   siteUrl,
+   generateRobotsTxt: true,
+   robotsTxtOptions: {
+      policies: [
+         {userAgent: "*", disallow: "/blog/category/*"},
+         {userAgent: "*", allow: "/"},
+      ],
+   },
+   exclude: ["/blog/category/*"]
+};
+```
+It's also important to exclude `robots.txt` and all the sitemap XML files from Git since
+it's generated every time you build. I added this to my `.gitignore`:
+
+```gitignore
+public/robots.txt
+public/sitemap*.xml
+```
+
+Delete `public/robots.txt` and `public/sitemap*.xml`, then run the build manually:
+
+```bash
+rm -f public/robots.txt public/sitemap*.xml
+npm run build
+```
+
+Verify that `public/robots.txt`, `public/sitemap.xml`, etc... are created and look correct.
+
+That's all there is to it. Hope this helps.
+
+\- E
