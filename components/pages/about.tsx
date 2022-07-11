@@ -31,7 +31,7 @@ export default function About({className}: AboutPageProps) {
                                photographerUrl="https://www.instagram.com/alicia.fyfe.1/"/>
                     </FadeIn>
                     <h2 className="mt-2">About Me</h2>
-                    <p>I am an independent/freelance software developer with {numYearsExperience()} years of experience,
+                    <p>I&apos;m an independent/freelance software developer with {numYearsExperience()} years of experience,
                         currently living near Annapolis, Maryland.️</p>
 
                     <h2 className="mt-2">Professional Background</h2>
