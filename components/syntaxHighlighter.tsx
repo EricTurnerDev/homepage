@@ -12,7 +12,7 @@ const SyntaxHighlighter = ({className, children}: SyntaxHighlighterProps) => {
     let language = children.props.className?.replace('language-', '');
 
     return (
-        <div className={classNames('syntax-highlighter', className)}>
+        <div className={classNames('syntax-highlighter max-w-xs sm:max-w-full overflow-x-scroll', className)}>
             <Highlight {...defaultProps} code={code} theme={theme} language={language}>
                 {({className, style, tokens, getLineProps, getTokenProps}) => (
                     <pre className={`${className}`} style={style}>
