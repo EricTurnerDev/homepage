@@ -6,7 +6,8 @@ export type Categories =
     "Ham Radio" |
     "Hiking" |
     "Nature" |
-    "Programming";
+    "Programming" |
+    "Travel";
 
 export interface CategoryProps {
     children: Categories;
