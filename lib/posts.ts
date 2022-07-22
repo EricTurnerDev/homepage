@@ -15,27 +15,16 @@ function getSlug(fileName) {
     return fileName.replace(/\.mdx?$/, '');
 }
 
-interface PostVisibilityProps {
-    date: string;
-    published: boolean;
-}
-
-function isVisible(post: PostVisibilityProps) {
-    const isPastDate = compareAsc(parseISO(post.date), new Date()) < 0;
-    return post.published && isPastDate;
-}
-
-interface PublishedPostsProps {
+interface PostsProps {
     slug: string;
     date: string;
     published: boolean;
-    [x:string]: any;
+    [x: string]: any;
 }
 
-function getPublishedPosts(): PublishedPostsProps[] {
+export function getPosts(): PostsProps[] {
     const fileNames = fs.readdirSync(postsDirectory);
 
-    // Get published blog posts
     return fileNames.map((fileName) => {
         // Remove ".md" from file name to get slug
         const slug = getSlug(fileName);
@@ -54,38 +43,55 @@ function getPublishedPosts(): PublishedPostsProps[] {
             published: matterResult.data.published,
             ...matterResult.data,
         };
-    }).filter(post => isVisible(post));
+    });
 }
 
 interface FiltersProps {
-    maxPosts?: number;
     category?: Categories;
+    published?: boolean;
+    before?: Date;
 }
 
-export function getSortedPosts(filters: FiltersProps = {}) {
-    const {maxPosts = 0, category} = filters;
-
-    let postsData = getPublishedPosts()
-        .sort(({date: a}, {date: b}) => {
-            if (a < b) {
-                return 1;
-            } else if (a > b) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
+export function filterPosts(posts: PostsProps[], filters: FiltersProps = {}): PostsProps[] {
+    const {category, published = false, before} = filters;
 
     // Filter by category
+    let postsData = posts;
     if (category) {
         postsData = postsData.filter(post => post.categories?.includes(category));
     }
 
+    // Filter by published
+    if (published) {
+        postsData = postsData.filter(post => post.published);
+    }
+
+    // Filter by date before
+    if (before) {
+        postsData = postsData.filter(post => compareAsc(parseISO(post.date), before) < 0);
+    }
+
+    return postsData;
+}
+
+export function sortPostsByDateDescending(posts: PostsProps[]): PostsProps[] {
+    return posts.sort(({date: a}, {date: b}) => {
+        if (a < b) {
+            return 1;
+        } else if (a > b) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+}
+
+export function maxPosts(posts: PostsProps[], max: number): PostsProps[] {
     // Return max requested blog posts, or all of them.
-    if (maxPosts && maxPosts > 0) {
-        return postsData.slice(0, maxPosts);
+    if (max > 0) {
+        return posts.slice(0, max);
     } else {
-        return postsData;
+        return posts;
     }
 }
 
@@ -109,8 +115,7 @@ export async function getPostData(slug) {
     };
 }
 
-export function getAllCategories() {
-    const posts = getPublishedPosts();
+export function getAllCategories(posts: PostsProps[]) {
     const categories = posts.reduce(
         (accumulator, post) => accumulator.concat(post.categories || []),
         []
@@ -119,8 +124,8 @@ export function getAllCategories() {
     return Array.from(categoriesSet).sort();
 }
 
-export function getAllCategoryPaths() {
-    const categories: Categories[] = getAllCategories();
+export function getAllCategoryPaths(posts: PostsProps[]) {
+    const categories: Categories[] = getAllCategories(posts);
     return categories.map((category: Categories) => ({
         params: {
             category
@@ -128,9 +133,7 @@ export function getAllCategoryPaths() {
     }))
 }
 
-export function getAllSlugPaths() {
-    const posts = getSortedPosts();
-
+export function getAllSlugPaths(posts: PostsProps[]) {
     // Returns an array that looks like this:
     // [
     //   {

@@ -1,9 +1,9 @@
-import {getSortedPosts, getAllCategories} from "../lib/posts";
+import {getPosts, sortPostsByDateDescending, filterPosts, getAllCategories} from "../lib/posts";
 import Blog from '../components/pages/blog';
 
 export async function getStaticProps() {
-    const postsData = getSortedPosts();
-    const categories = getAllCategories();
+    const postsData = sortPostsByDateDescending(filterPosts(getPosts(), {published: true, before: new Date()}));
+    const categories = getAllCategories(postsData);
     return {
         props: {
             postsData,
