@@ -18,7 +18,12 @@ export async function getStaticProps({params}) {
  * Used by nextjs for dynamic routes, so it knows all possible values for the path parameter.
  */
 export async function getStaticPaths() {
-    const posts = filterPosts(getPosts(), {published: true, before: new Date()});
+    const env = process.env.NODE_ENV
+    let posts = getPosts();
+    // We need to be able to access unpublished future posts while developing.
+    if (env !== "development") {
+        posts = filterPosts(posts, {published: true, before: new Date()});
+    }
     const paths = getAllSlugPaths(posts);
     return {
         paths,
