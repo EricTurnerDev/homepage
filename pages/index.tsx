@@ -1,6 +1,7 @@
 import Home from '../components/pages/home';
 import {filterPosts, getPosts, sortPostsByDateDescending, maxPosts} from "../lib/posts";
 import Config from "../lib/config";
+import {createSearchIndex} from "../lib/search";
 
 /**
  * Causes next.js to fetch data before static (build time) pre-rendering.
@@ -12,10 +13,17 @@ import Config from "../lib/config";
  * @returns {Promise<{props: {allPostsData}}>}
  */
 export async function getStaticProps() {
-    const postsData = maxPosts(sortPostsByDateDescending(filterPosts(getPosts(), {published: true, before: new Date()})), Config.maxHomePagePosts);
+    const postsData = maxPosts(sortPostsByDateDescending(filterPosts(getPosts(), {
+        published: true,
+        before: new Date()
+    })), Config.maxHomePagePosts);
+
+    const searchIndex = createSearchIndex();
+
     return {
         props: {
             postsData,
+            searchIndex,
         },
     };
 }

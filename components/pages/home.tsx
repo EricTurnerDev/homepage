@@ -3,20 +3,23 @@ import Image from "next/image";
 import Link from 'next/link';
 import FadeIn from '../fadeIn';
 import Layout from '../layout';
-import Posts from '../posts';
-
-import {PostProps} from "../posts";
+import Posts, {PostProps} from "../posts";
+import SearchResults from "../searchResults";
 
 interface HomePageProps {
     postsData: PostProps[];
+    searchIndex?: object,
     className?: string;
 }
 
-export default function Home({postsData, className}: HomePageProps) {
+export default function Home({postsData, searchIndex, className}: HomePageProps) {
     const siteTitle: string = 'Home - ericturner.dev';
 
     return (
         <Layout siteTitle={siteTitle} className={classNames('home', className)}>
+            <section>
+                <SearchResults searchIndex={searchIndex} />
+            </section>
             <section className="hero flex flex-col items-center bg-blue-200 dark:bg-slate-700">
                     <FadeIn className="flex flex-row items-center py-5 md:py-10" duration={100}>
                         <Image
